@@ -2,7 +2,13 @@ import React, { PureComponent } from 'react';
 import { Segment, Form, Button } from 'semantic-ui-react';
 
 class LocationLookup extends PureComponent {
+  state = {
+    location: null
+  };
+
   render() {
+    const { location } = this.state;
+    const { render } = this.props;
     return (
       <div>
         <Segment>
@@ -19,6 +25,7 @@ class LocationLookup extends PureComponent {
             </Form.Group>
           </Form>
         </Segment>
+        {location && render(location)}
       </div>
     );
   }

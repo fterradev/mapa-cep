@@ -17,145 +17,8 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <Segment>
-        <Form
-                as="form"
-        >
-                <FormGroup>
-                        <FormInput
-                                as={[Function]}
-                                control={[Function]}
-                                inline={true}
-                                label="CEP"
-                                type="text"
-                        />
-                        <Button
-                                as="button"
-                                role="button"
-                        >
-                                Buscar
-                        </Button>
-                </FormGroup>
-        </Form>
-</Segment>,
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "children": <Form
-          as="form"
->
-          <FormGroup>
-                    <FormInput
-                              as={[Function]}
-                              control={[Function]}
-                              inline={true}
-                              label="CEP"
-                              type="text"
-                    />
-                    <Button
-                              as="button"
-                              role="button"
-                    >
-                              Buscar
-                    </Button>
-          </FormGroup>
-</Form>,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "as": "form",
-          "children": <FormGroup>
-            <FormInput
-                        as={[Function]}
-                        control={[Function]}
-                        inline={true}
-                        label="CEP"
-                        type="text"
-            />
-            <Button
-                        as="button"
-                        role="button"
-            >
-                        Buscar
-            </Button>
-</FormGroup>,
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "children": Array [
-              <FormInput
-                as={[Function]}
-                control={[Function]}
-                inline={true}
-                label="CEP"
-                type="text"
-/>,
-              <Button
-                as="button"
-                role="button"
->
-                Buscar
-</Button>,
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "as": [Function],
-                "control": [Function],
-                "inline": true,
-                "label": "CEP",
-                "type": "text",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "as": "button",
-                "children": "Buscar",
-                "role": "button",
-              },
-              "ref": null,
-              "rendered": "Buscar",
-              "type": [Function],
-            },
-          ],
-          "type": [Function],
-        },
-        "type": [Function],
-      },
-      "type": [Function],
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <Segment>
+      "children": Array [
+        <Segment>
           <Form
                     as="form"
           >
@@ -176,9 +39,12 @@ ShallowWrapper {
                     </FormGroup>
           </Form>
 </Segment>,
-      },
-      "ref": null,
-      "rendered": Object {
+        null,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
@@ -285,6 +151,152 @@ ShallowWrapper {
         },
         "type": [Function],
       },
+      null,
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Segment>
+            <Form
+                        as="form"
+            >
+                        <FormGroup>
+                                    <FormInput
+                                                as={[Function]}
+                                                control={[Function]}
+                                                inline={true}
+                                                label="CEP"
+                                                type="text"
+                                    />
+                                    <Button
+                                                as="button"
+                                                role="button"
+                                    >
+                                                Buscar
+                                    </Button>
+                        </FormGroup>
+            </Form>
+</Segment>,
+          null,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <Form
+              as="form"
+>
+              <FormGroup>
+                            <FormInput
+                                          as={[Function]}
+                                          control={[Function]}
+                                          inline={true}
+                                          label="CEP"
+                                          type="text"
+                            />
+                            <Button
+                                          as="button"
+                                          role="button"
+                            >
+                                          Buscar
+                            </Button>
+              </FormGroup>
+</Form>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "as": "form",
+              "children": <FormGroup>
+                <FormInput
+                                as={[Function]}
+                                control={[Function]}
+                                inline={true}
+                                label="CEP"
+                                type="text"
+                />
+                <Button
+                                as="button"
+                                role="button"
+                >
+                                Buscar
+                </Button>
+</FormGroup>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <FormInput
+                    as={[Function]}
+                    control={[Function]}
+                    inline={true}
+                    label="CEP"
+                    type="text"
+/>,
+                  <Button
+                    as="button"
+                    role="button"
+>
+                    Buscar
+</Button>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "as": [Function],
+                    "control": [Function],
+                    "inline": true,
+                    "label": "CEP",
+                    "type": "text",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "as": "button",
+                    "children": "Buscar",
+                    "role": "button",
+                  },
+                  "ref": null,
+                  "rendered": "Buscar",
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        null,
+      ],
       "type": "div",
     },
   ],
