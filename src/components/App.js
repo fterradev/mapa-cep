@@ -12,7 +12,6 @@ class App extends PureComponent {
           renderResult={location => (
             <LocationMap
               location={location}
-              description={JSON.stringify(location)}
             />
           )}
         />
