@@ -1,9 +1,17 @@
 import React, { PureComponent } from 'react';
 import { Segment, Form, Button } from 'semantic-ui-react';
+import { lookupLocation } from '../helper';
 
 class LocationLookup extends PureComponent {
   state = {
-    location: null
+    location: null,
+    inputCep: null
+  };
+
+  findLocation = () => {
+    lookupLocation(this.state.inputCep).then(location =>
+      this.setState({ location })
+    );
   };
 
   render() {
@@ -12,20 +20,23 @@ class LocationLookup extends PureComponent {
     return (
       <div>
         <Segment>
-          <Form>
+          <Form onSubmit={this.findLocation}>
             <Form.Group>
               <Form.Input
                 inline
                 label="CEP"
                 type="text"
+                onChange={e =>
+                  this.setState({
+                    inputCep: e.target.value
+                  })
+                }
               />
-              <Button>
-                Buscar
-              </Button>
+              <Button type="submit">Buscar</Button>
             </Form.Group>
           </Form>
         </Segment>
-        {location && render(location)}
+        {location && render(JSON.stringify(location))}
       </div>
     );
   }
