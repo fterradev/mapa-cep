@@ -1,17 +1,27 @@
 import React, { PureComponent } from 'react';
-import { Segment, Form, Button } from 'semantic-ui-react';
+import { Segment, Header, Form, Button } from 'semantic-ui-react';
 import { lookupLocation } from '../helper';
 
 class LocationLookup extends PureComponent {
   state = {
     location: null,
-    cep: '13480686'
+    cep: '13480686',
+    resultPanelIsOpen: false,
+    errorMsg: null
   };
 
   findLocation = () => {
     lookupLocation(this.state.cep).then(location =>
-      this.setState({ location })
-    );
+      this.setState({
+        location,
+        resultPanelIsOpen: true,
+        errorMsg: null
+      })
+    ).catch(reason => this.setState({
+      errorMsg: reason,
+      location: null,
+      resultPanelIsOpen: true
+    }));
   };
 
   componentDidMount() {
@@ -19,11 +29,12 @@ class LocationLookup extends PureComponent {
   }
 
   render() {
-    const { cep, location } = this.state;
-    const { render } = this.props;
+    const { cep, location, errorMsg, resultPanelIsOpen } = this.state;
+    const { renderResult } = this.props;
     return (
       <div>
         <Segment>
+          <Header as="h3">Consultar</Header>
           <Form onSubmit={this.findLocation}>
             <Form.Group>
               <Form.Input
@@ -41,7 +52,16 @@ class LocationLookup extends PureComponent {
             </Form.Group>
           </Form>
         </Segment>
-        {location && render(location)}
+        {(resultPanelIsOpen && (
+          <Segment>
+            <Button icon="close" floated="right" onClick={() => this.setState({
+              resultPanelIsOpen: false
+            })} />
+            {location && renderResult(location)}
+            {errorMsg ? errorMsg : ''}
+          </Segment>
+        )) ||
+          null}
       </div>
     );
   }
