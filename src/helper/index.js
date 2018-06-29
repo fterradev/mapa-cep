@@ -11,6 +11,19 @@ export const lookupLocation = cep => {
       return data;
     })
     .catch(reason => {
-      throw 'CEP inválido'; // eslint-disable-line no-throw-literal
+      if (typeof reason === 'string') {
+        return reason;
+      }
+      if (reason.message.match(/failed *$/)) {
+        return 'Formato inválido de CEP (deve conter 8 dígitos)';
+      }
+      if (reason.message.match(/timed out *$/)) {
+        return 'O serviço de CEP demorou muito para responder';
+      }
+      if (process.env.NODE_ENV !== 'production') {
+        return reason;
+      } else {
+        return 'Erro desconhecido no acesso ao serviço de CEP';
+      }
     });
 };
