@@ -5,17 +5,21 @@ import { lookupLocation } from '../helper';
 class LocationLookup extends PureComponent {
   state = {
     location: null,
-    inputCep: null
+    cep: '13480686'
   };
 
   findLocation = () => {
-    lookupLocation(this.state.inputCep).then(location =>
+    lookupLocation(this.state.cep).then(location =>
       this.setState({ location })
     );
   };
 
+  componentDidMount() {
+    this.findLocation();
+  }
+
   render() {
-    const { location } = this.state;
+    const { cep, location } = this.state;
     const { render } = this.props;
     return (
       <div>
@@ -28,15 +32,16 @@ class LocationLookup extends PureComponent {
                 type="text"
                 onChange={e =>
                   this.setState({
-                    inputCep: e.target.value
+                    cep: e.target.value
                   })
                 }
+                value={cep}
               />
               <Button type="submit">Buscar</Button>
             </Form.Group>
           </Form>
         </Segment>
-        {location && render(JSON.stringify(location))}
+        {location && render(location)}
       </div>
     );
   }
