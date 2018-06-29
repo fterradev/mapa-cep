@@ -11,17 +11,21 @@ class LocationLookup extends PureComponent {
   };
 
   findLocation = () => {
-    lookupLocation(this.state.cep).then(location =>
-      this.setState({
-        location,
-        resultPanelIsOpen: true,
-        errorMsg: null
-      })
-    ).catch(reason => this.setState({
-      errorMsg: reason,
-      location: null,
-      resultPanelIsOpen: true
-    }));
+    lookupLocation(this.state.cep)
+      .then(location =>
+        this.setState({
+          location,
+          resultPanelIsOpen: true,
+          errorMsg: null
+        })
+      )
+      .catch(reason =>
+        this.setState({
+          errorMsg: reason,
+          location: null,
+          resultPanelIsOpen: true
+        })
+      );
   };
 
   componentDidMount() {
@@ -54,9 +58,15 @@ class LocationLookup extends PureComponent {
         </Segment>
         {(resultPanelIsOpen && (
           <Segment>
-            <Button icon="close" floated="right" onClick={() => this.setState({
-              resultPanelIsOpen: false
-            })} />
+            <Button
+              icon="close"
+              floated="right"
+              onClick={() =>
+                this.setState({
+                  resultPanelIsOpen: false
+                })
+              }
+            />
             {location && renderResult(location)}
             {errorMsg ? errorMsg : ''}
           </Segment>
