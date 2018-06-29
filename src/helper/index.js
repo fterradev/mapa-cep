@@ -1,7 +1,16 @@
 import fetchJsonp from 'fetch-jsonp';
 
-export const lookupLocation = cep =>
-  fetchJsonp(`https://viacep.com.br/ws/${cep}/json/`)
+export const lookupLocation = cep => {
+  const url = `https://viacep.com.br/ws/${cep}/json/`;
+  return fetchJsonp(url)
     .then(response => response.json())
-    .then(json => json)
-    .catch(ex => console.log('parsing failed', ex));
+    .then(data => {
+      if (data.erro) {
+        throw 'CEP inexistente'; // eslint-disable-line no-throw-literal
+      }
+      return data;
+    })
+    .catch(reason => {
+      throw 'CEP inválido'; // eslint-disable-line no-throw-literal
+    });
+};

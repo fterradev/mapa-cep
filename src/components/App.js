@@ -5,7 +5,9 @@ import { lookupLocation } from '../helper';
 
 class App extends PureComponent {
   componentDidMount() {
-    lookupLocation('02050010');
+    lookupLocation('02050010')
+    .then(x => console.log(x))
+    .catch(x => console.log(x));
   }
   
   render() {
