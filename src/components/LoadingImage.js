@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 class LoadingImage extends PureComponent {
   state = {
@@ -15,16 +16,23 @@ class LoadingImage extends PureComponent {
           alt="map"
           src={src}
           {...restProps}
-          onLoad={() =>
+          onLoad={e => {
             this.setState({
               loadedSrc: src
-            })
-          }
+            });
+            if (onLoad) onLoad(e);
+          }}
           style={{ display: loadedSrc === src ? 'inline' : 'none' }}
         />
       </div>
     );
   }
 }
+
+LoadingImage.propTypes = {
+  src: PropTypes.string.isRequired,
+  onLoad: PropTypes.func,
+  loadingElement: PropTypes.element.isRequired
+};
 
 export default LoadingImage;

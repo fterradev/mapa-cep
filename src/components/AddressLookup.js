@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Segment, Header, Form, Button, Input } from 'semantic-ui-react';
 import { lookupAddress } from '../helper';
+import PropTypes from 'prop-types';
 
 class AddressLookup extends PureComponent {
   inputCep = React.createRef();
@@ -91,5 +92,9 @@ class AddressLookup extends PureComponent {
     );
   }
 }
+
+AddressLookup.propTypes = {
+  renderResult: PropTypes.func.isRequired
+};
 
 export default AddressLookup;

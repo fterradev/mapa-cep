@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header, List, Loader } from 'semantic-ui-react';
 import LoadingImage from './LoadingImage';
+import PropTypes from 'prop-types';
 
 const ListItem = ({ children }) => (
   <List.Item style={{ fontSize: '1.1em' }}>{children}</List.Item>
@@ -26,5 +27,9 @@ const LocationMap = ({ address }) => (
     />
   </div>
 );
+
+LocationMap.propTypes = {
+  address: PropTypes.object.isRequired
+};
 
 export default LocationMap;
