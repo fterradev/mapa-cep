@@ -1,20 +1,20 @@
 import React, { PureComponent } from 'react';
 import { Segment, Header, Form, Button } from 'semantic-ui-react';
-import { lookupLocation } from '../helper';
+import { lookupAddress } from '../helper';
 
-class LocationLookup extends PureComponent {
+class AddressLookup extends PureComponent {
   state = {
-    location: null,
+    address: null,
     cep: '13480686',
     resultPanelIsOpen: false,
     errorMsg: null
   };
 
   findLocation = () => {
-    lookupLocation(this.state.cep)
-      .then(location =>
+    lookupAddress(this.state.cep)
+      .then(address =>
         this.setState({
-          location,
+          address,
           resultPanelIsOpen: true,
           errorMsg: null
         })
@@ -22,7 +22,7 @@ class LocationLookup extends PureComponent {
       .catch(reason =>
         this.setState({
           errorMsg: reason,
-          location: null,
+          address: null,
           resultPanelIsOpen: true
         })
       );
@@ -33,7 +33,7 @@ class LocationLookup extends PureComponent {
   }
 
   render() {
-    const { cep, location, errorMsg, resultPanelIsOpen } = this.state;
+    const { cep, address, errorMsg, resultPanelIsOpen } = this.state;
     const { renderResult } = this.props;
     return (
       <div>
@@ -67,7 +67,7 @@ class LocationLookup extends PureComponent {
                 })
               }
             />
-            {location && renderResult(location)}
+            {address && renderResult(address)}
             {errorMsg ? errorMsg : ''}
           </Segment>
         )) ||
@@ -77,4 +77,4 @@ class LocationLookup extends PureComponent {
   }
 }
 
-export default LocationLookup;
+export default AddressLookup;

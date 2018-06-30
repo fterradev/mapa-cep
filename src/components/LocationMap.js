@@ -7,14 +7,14 @@ const ListItem = ({ children }) => (
 
 class LocationMap extends PureComponent {
   render() {
-    const { location } = this.props;
+    const { address } = this.props;
     return (
       <div>
-        <Header as="h2">{location.logradouro}</Header>
+        <Header as="h2">{address.logradouro}</Header>
         <List>
-          <ListItem>{location.bairro}</ListItem>
-          <ListItem>{location.localidade} - {location.uf}</ListItem>
-          <ListItem>{location.cep}</ListItem>
+          <ListItem>{address.bairro}</ListItem>
+          <ListItem>{address.localidade} - {address.uf}</ListItem>
+          <ListItem>{address.cep}</ListItem>
         </List>
       </div>
     );

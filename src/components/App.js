@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Container, Header } from 'semantic-ui-react';
-import LocationLookup from './LocationLookup';
+import AddressLookup from './AddressLookup';
 import LocationMap from './LocationMap';
 
 class App extends PureComponent {
@@ -8,10 +8,10 @@ class App extends PureComponent {
     return (
       <Container>
         <Header as="h1">Consulta de endereço</Header>
-        <LocationLookup
-          renderResult={location => (
+        <AddressLookup
+          renderResult={address => (
             <LocationMap
-              location={location}
+              address={address}
             />
           )}
         />

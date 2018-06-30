@@ -1,7 +1,7 @@
 /* eslint-disable no-throw-literal */
 import fetchJsonp from 'fetch-jsonp';
 
-export const lookupLocation = cep => {
+export const lookupAddress = cep => {
   const url = `https://viacep.com.br/ws/${cep}/json/`;
   return fetchJsonp(url)
     .then(response => response.json())

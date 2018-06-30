@@ -1,8 +1,8 @@
-import { lookupLocation } from './index';
+import { lookupAddress } from './index';
 
-describe('lookupLocation', () => {
+describe('lookupAddress', () => {
   const cep = '02050-010';
-  const expectedLocation = {
+  const expectedAddressTemplate = {
     cep: cep,
     logradouro: 'Rua Miguel Mentem',
     complemento: '',
@@ -15,9 +15,9 @@ describe('lookupLocation', () => {
   };
 
   describe('given a valid zip code', () => {
-    it('finds the location', () => {
-      return expect(lookupLocation(cep)).resolves.toMatchObject(
-        expectedLocation
+    it('finds the corresponding address', () => {
+      return expect(lookupAddress(cep)).resolves.toMatchObject(
+        expectedAddressTemplate
       );
     });
   });
