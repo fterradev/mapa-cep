@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
-import { Segment, Header, Form, Button } from 'semantic-ui-react';
+import { Segment, Header, Form, Button, Input } from 'semantic-ui-react';
 import { lookupAddress } from '../helper';
 
 class AddressLookup extends PureComponent {
+  inputCep = React.createRef();
+  
   state = {
     address: null,
-    cep: '13480686',
+    cep: '',
     resultPanelIsOpen: false,
     errorMsg: null
   };
@@ -29,7 +31,8 @@ class AddressLookup extends PureComponent {
   };
 
   componentDidMount() {
-    this.findLocation();
+    //this.findLocation();
+    this.inputCep.current.focus();
   }
 
   render() {
@@ -41,17 +44,19 @@ class AddressLookup extends PureComponent {
           <Header as="h3">Consultar</Header>
           <Form onSubmit={this.findLocation}>
             <Form.Group>
-              <Form.Input
-                inline
-                label="CEP"
-                type="text"
-                onChange={e =>
-                  this.setState({
-                    cep: e.target.value
-                  })
-                }
-                value={cep}
-              />
+              <Form.Field inline>
+                <label>CEP</label>
+                <Input
+                  type="text"
+                  ref={this.inputCep}
+                  onChange={e =>
+                    this.setState({
+                      cep: e.target.value
+                    })
+                  }
+                  value={cep}
+                />
+              </Form.Field>
               <Button type="submit">Buscar</Button>
             </Form.Group>
           </Form>
