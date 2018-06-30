@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Header, List, Loader } from 'semantic-ui-react';
 import LoadingImage from './LoadingImage';
 
@@ -8,28 +8,23 @@ const ListItem = ({ children }) => (
 
 const loadingElement = <Loader active inline />;
 
-class LocationMap extends PureComponent {
-  render() {
-    const { address } = this.props;
-    return (
-      <div>
-        <Header as="h2">{address.logradouro}</Header>
-        <List>
-          <ListItem>{address.bairro}</ListItem>
-          <ListItem>
-            {address.localidade} - {address.uf}
-          </ListItem>
-          <ListItem>{address.cep}</ListItem>
-        </List>
-        <LoadingImage
-          src={`https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap&markers=${
-            address.cep
-          }&key=AIzaSyDchVfbHFmTd_XgIAb3E1GM5SWT1u7cvnU`}
-          loadingElement={loadingElement}
-        />
-      </div>
-    );
-  }
-}
+const LocationMap = ({ address }) => (
+  <div>
+    <Header as="h2">{address.logradouro}</Header>
+    <List>
+      <ListItem>{address.bairro}</ListItem>
+      <ListItem>
+        {address.localidade} - {address.uf}
+      </ListItem>
+      <ListItem>{address.cep}</ListItem>
+    </List>
+    <LoadingImage
+      src={`https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap&markers=${
+        address.cep
+      }&key=AIzaSyDchVfbHFmTd_XgIAb3E1GM5SWT1u7cvnU`}
+      loadingElement={loadingElement}
+    />
+  </div>
+);
 
 export default LocationMap;
