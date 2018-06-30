@@ -44,17 +44,25 @@ class AddressLookup extends PureComponent {
           <Header as="h3">Consultar</Header>
           <Form onSubmit={this.findLocation}>
             <Form.Group>
-              <Form.Field inline>
+              <Form.Field inline required>
                 <label>CEP</label>
                 <Input
                   type="text"
                   ref={this.inputCep}
-                  onChange={e =>
+                  onChange={e => {
+                    const input = e.target;
+                    if (input.validity.patternMismatch) {
+                      input.setCustomValidity('Favor inserir um CEP com 9 dígitos');
+                    } else {
+                      input.setCustomValidity('');
+                    }
                     this.setState({
-                      cep: e.target.value
+                      cep: input.value
                     })
-                  }
+                  }}
                   value={cep}
+                  required
+                  pattern="[0-9]{5}-?[0-9]{3}"
                 />
               </Form.Field>
               <Button type="submit">Buscar</Button>
