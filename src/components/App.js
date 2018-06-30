@@ -9,11 +9,7 @@ class App extends PureComponent {
       <Container>
         <Header as="h1">Consulta de endereço</Header>
         <AddressLookup
-          renderResult={address => (
-            <LocationMap
-              address={address}
-            />
-          )}
+          renderResult={address => <LocationMap address={address} />}
         />
       </Container>
     );

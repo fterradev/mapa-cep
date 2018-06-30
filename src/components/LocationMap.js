@@ -6,7 +6,7 @@ const ListItem = ({ children }) => (
   <List.Item style={{ fontSize: '1.1em' }}>{children}</List.Item>
 );
 
-const loadingElement=<Loader active inline />;
+const loadingElement = <Loader active inline />;
 
 class LocationMap extends PureComponent {
   render() {

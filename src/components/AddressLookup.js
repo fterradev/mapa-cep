@@ -4,7 +4,7 @@ import { lookupAddress } from '../helper';
 
 class AddressLookup extends PureComponent {
   inputCep = React.createRef();
-  
+
   state = {
     address: null,
     cep: '',
@@ -52,13 +52,15 @@ class AddressLookup extends PureComponent {
                   onChange={e => {
                     const input = e.target;
                     if (input.validity.patternMismatch) {
-                      input.setCustomValidity('Favor inserir um CEP com 9 dígitos');
+                      input.setCustomValidity(
+                        'Favor inserir um CEP com 9 dígitos'
+                      );
                     } else {
                       input.setCustomValidity('');
                     }
                     this.setState({
                       cep: input.value
-                    })
+                    });
                   }}
                   value={cep}
                   required
