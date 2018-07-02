@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import AddressLookup from './AddressLookup';
 
-describe('Wallet', () => {
+describe('AddressLookup', () => {
   const mockRenderResult = jest.fn();
   const addressLookup = shallow(<AddressLookup renderResult={mockRenderResult} />);
 
