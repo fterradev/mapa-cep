@@ -24,6 +24,7 @@ const LocationMap = ({ address }) => (
         address.cep
       }&key=AIzaSyDchVfbHFmTd_XgIAb3E1GM5SWT1u7cvnU`}
       loadingElement={loadingElement}
+      style={{maxWidth: '100%'}}
     />
   </div>
 );

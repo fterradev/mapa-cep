@@ -7,7 +7,7 @@ class LoadingImage extends PureComponent {
   };
 
   render() {
-    const { src, onLoad, loadingElement, ...restProps } = this.props;
+    const { src, onLoad, loadingElement, style, ...restProps } = this.props;
     const { loadedSrc } = this.state;
     return (
       <div>
@@ -22,7 +22,10 @@ class LoadingImage extends PureComponent {
             });
             if (onLoad) onLoad(e);
           }}
-          style={{ display: loadedSrc === src ? 'inline' : 'none' }}
+          style={{
+            ...style,
+            display: loadedSrc === src ? 'inline' : 'none'
+          }}
         />
       </div>
     );
