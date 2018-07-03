@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Segment, Header, Form, Button, Input } from 'semantic-ui-react';
+import { Segment, Header, Form, Button, Input, Icon } from 'semantic-ui-react';
 import { lookupAddress } from '../helper';
 import PropTypes from 'prop-types';
 
@@ -74,9 +74,10 @@ class AddressLookup extends PureComponent {
         </Segment>
         {(resultPanelIsOpen && (
           <Segment>
-            <Button
-              icon="close"
-              floated="right"
+            <Icon
+              name="close"
+              link
+              style={{float: 'right'}}
               onClick={() =>
                 this.setState({
                   resultPanelIsOpen: false
