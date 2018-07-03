@@ -7,7 +7,6 @@ describe('AddressLookup', () => {
   const addressLookup = shallow(
     <AddressLookup renderResult={mockRenderResult} />
   );
-  expect.assertions(3);
   it('renders properly', () => {
     expect(addressLookup).toMatchSnapshot();
   });
@@ -30,7 +29,6 @@ describe('AddressLookup', () => {
         }
       });
     });
-    expect.assertions(1);
     it('updates the cep in `state` accordingly', () => {
       expect(addressLookup.state().cep).toBe(cep);
     });
@@ -50,10 +48,14 @@ describe('AddressLookup', () => {
         ibge: '3550308',
         gia: '1004'
       };
-      expect.assertions(1);
       it('updates the address in `state`', () => {
         expect(addressLookup.state().address).toMatchObject(
           expectedAddressTemplate
+        );
+      });
+      it('calls the supplied renderResult with the current address in `state`', () => {
+        expect(mockRenderResult).toHaveBeenCalledWith(
+          addressLookup.state().address
         );
       });
     });
